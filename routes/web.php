@@ -22,3 +22,13 @@ Route::post('admin/update/reset', 'Admin\ResetPasswordController@reset')->name('
 Route::get('/admin/Change/Password','AdminController@ChangePassword')->name('admin.password.change');
 Route::post('/admin/password/update','AdminController@Update_pass')->name('admin.password.update');
 Route::get('admin/logout', 'AdminController@logout')->name('admin.logout');
+
+
+//admin section
+
+//category
+Route::get('admin/categories', 'Admin\Category\CategoryController@category')->name('categories');
+Route::post('admin/store/category', 'Admin\Category\CategoryController@storecategory')->name('store.category');
+Route::get('delete/category/{id}', 'Admin\Category\CategoryController@deletecategory');
+Route::get('edit/category/{id}', 'Admin\Category\CategoryController@editcategory');
+Route::post('update/category/{id}', 'Admin\Category\CategoryController@updatecategory');
