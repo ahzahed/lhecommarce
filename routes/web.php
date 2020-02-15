@@ -65,6 +65,10 @@ Route::get('delete/newslater/{id}', 'Admin\Newslater\NewslaterController@deleteN
 Route::get('admin/product/all', 'Admin\Product\ProductController@index')->name('all.product');
 Route::get('admin/product/add', 'Admin\Product\ProductController@create')->name('add.product');
 Route::post('admin/store/product', 'Admin\Product\ProductController@store')->name('store.product');
+Route::get('inactive/product/{id}', 'Admin\Product\ProductController@Inactive');
+Route::get('active/product/{id}', 'Admin\Product\ProductController@Active');
+Route::get('delete/product/{id}', 'Admin\Product\ProductController@DeleteProduct');
+
 
 //Get subcategory by ajax
 Route::get('get/subcategory/{category_id}', 'Admin\Product\ProductController@GetSubCat');
