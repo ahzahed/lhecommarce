@@ -12,6 +12,7 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/plugins/OwlCarousel2-2.2.1/owl.theme.default.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/plugins/OwlCarousel2-2.2.1/animate.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/plugins/slick-1.8.0/slick.css') }}">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/main_styles.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/responsive.css') }}">
 
@@ -251,8 +252,74 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="{{ asset('public/frontend/plugins/greensock/ScrollToPlugin.min.js') }}"></script>
 <script src="{{ asset('public/frontend/plugins/OwlCarousel2-2.2.1/owl.carousel.js') }}"></script>
 <script src="{{ asset('public/frontend/plugins/slick-1.8.0/slick.js') }}"></script>
+<script src="{{ asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script src="{{ asset('public/frontend/plugins/easing/easing.js') }}"></script>
 <script src="{{ asset('public/frontend/js/custom.js') }}"></script>
+<script>
+	@if(Session::has('messege'))
+	  var type="{{Session::get('alert-type','info')}}"
+	  switch(type){
+		  case 'info':
+			   toastr.info("{{ Session::get('messege') }}");
+			   break;
+		  case 'success':
+			  toastr.success("{{ Session::get('messege') }}");
+			  break;
+		  case 'warning':
+			 toastr.warning("{{ Session::get('messege') }}");
+			  break;
+		  case 'error':
+			  toastr.error("{{ Session::get('messege') }}");
+			  break;
+	  }
+	@endif
+ </script>
+  <script>
+	$(function(){
+	  'use strict';
+
+	  $('#datatable1').DataTable({
+		responsive: true,
+		language: {
+		  searchPlaceholder: 'Search...',
+		  sSearch: '',
+		  lengthMenu: '_MENU_ items/page',
+		}
+	  });
+
+	  $('#datatable2').DataTable({
+		bLengthChange: false,
+		searching: false,
+		responsive: true
+	  });
+
+	  // Select2
+	  $('.dataTables_length select').select2({ minimumResultsForSearch: Infinity });
+
+	});
+  </script>
+
+   <script>
+	   $(document).on("click", "#delete", function(e){
+		   e.preventDefault();
+		   var link = $(this).attr("href");
+			  swal({
+				title: "Are you Want to delete?",
+				text: "Once Delete, This will be Permanently Delete!",
+				icon: "warning",
+				buttons: true,
+				dangerMode: true,
+			  })
+			  .then((willDelete) => {
+				if (willDelete) {
+					 window.location.href = link;
+				} else {
+				  swal("Safe Data!");
+				}
+			  });
+		  });
+  </script>
 </body>
 
 </html>
