@@ -172,6 +172,16 @@
                             <span>Trend Product</span>
                         </label>
                     </div>
+                    <div class="col-lg-4">
+                        <label>
+                            @if ($value->main_slider==1)
+                                <span class="badge badge-success">Active</span>
+                            @else
+                            <span class="badge badge-danger">Inactive</span>
+                            @endif
+                            <span>Main Slider</span>
+                        </label>
+                    </div>
                 </div>
             </div>
 

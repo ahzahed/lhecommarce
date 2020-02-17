@@ -1,4 +1,5 @@
 @extends('admin.admin_layouts')
+
 @section('admin_content')
 <!-- ########## START: MAIN PANEL ########## -->
 <div class="sl-mainpanel">
@@ -27,7 +28,7 @@
           <tbody>
               @foreach ($newslater as $value)
               <tr>
-                <td><input type="checkbox">{{ $value->id }}</td>
+                <td><input type="checkbox"> {{ $value->id }}</td>
                 <td>{{ $value->email }}</td>
                 <td>{{ \Carbon\Carbon::parse($value->created_at)->diffForhumans() }}</td>
                 <td>

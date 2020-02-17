@@ -5,7 +5,7 @@
 
   <div class="sl-pagebody">
     <div class="sl-page-title">
-      <h5>Category Table</h5>
+      <h5>Brand Table</h5>
     </div><!-- sl-page-title -->
 
     <div class="card pd-20 pd-sm-40">

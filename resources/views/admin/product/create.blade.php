@@ -165,6 +165,12 @@
                                 <span>Trend Product</span>
                             </label>
                         </div>
+                        <div class="col-lg-4">
+                            <label class="ckbox">
+                                <input type="checkbox" name="main_slider" value="1">
+                                <span>Main Slider</span>
+                            </label>
+                        </div>
                     </div>
                 </div>
 
