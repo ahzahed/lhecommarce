@@ -12,7 +12,7 @@
       <h6 class="card-body-title">Subscriber List
           <a href="#" class="btn btn-danger btn-sm" style="float:right;" id="delete">All Delete</a>
       </h6>
-    </br>
+      </br>
       <div class="table-wrapper">
         <table id="datatable1" class="table display responsive nowrap">
           <thead>
@@ -20,7 +20,8 @@
               <th class="wd-15p">ID</th>
               <th class="wd-15p">Email</th>
               <th class="wd-15p">Subscribing Time</th>
-              <th class="wd-20p">Action</th>
+              <th class="wd-15p">Action</th>
+              <th class="wd-20p"></th>
             </tr>
           </thead>
           <tbody>
@@ -32,6 +33,7 @@
                 <td>
                     <a href="{{ URL::to('delete/newslater/'.$value->id) }}" class="btn btn-danger btn-sm" id="delete">Delete</a>
                 </td>
+                <td></td>
               </tr>
               @endforeach
           </tbody>
@@ -39,5 +41,6 @@
       </div><!-- table-wrapper -->
     </div><!-- card -->
   </div><!-- sl-pagebody -->
+</div>
   
 @endsection

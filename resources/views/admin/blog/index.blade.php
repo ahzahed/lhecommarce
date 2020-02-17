@@ -12,15 +12,16 @@
       <h6 class="card-body-title">Post List
         <a href="#" class="btn btn-warning btn-sm" style="float:right;" data-toggle="modal" data-target="#exampleModal">Add New</a>
       </h6>
-    </br>
+      </br>
       <div class="table-wrapper">
         <table id="datatable1" class="table display responsive nowrap">
           <thead>
             <tr>
               <th class="wd-15p">Post Title</th>
               <th class="wd-15p">Category</th>
-              <th class="wd-20p">Image</th>
-              <th class="wd-20p">Action</th>
+              <th class="wd-15p">Image</th>
+              <th class="wd-15p">Action</th>
+              <th class="wd-20p"></th>
             </tr>
           </thead>
           <tbody>
@@ -33,6 +34,7 @@
                     <a href="{{ URL::to('edit/post/'.$value->id) }}" class="btn btn-sm btn-primary"> <i class="fa fa-edit"></i></a>
                     <a href="{{ URL::to('delete/post/'.$value->id) }}" class="btn btn-danger btn-sm" id="delete"><i class="fa fa-trash"></i></a>
                 </td>
+                <td></td>
               </tr>
               @endforeach
           </tbody>
@@ -40,5 +42,6 @@
       </div><!-- table-wrapper -->
     </div><!-- card -->
   </div><!-- sl-pagebody -->
+</div>
   
 @endsection

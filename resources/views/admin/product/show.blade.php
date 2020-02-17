@@ -19,92 +19,92 @@
                 @foreach ($product as $value)
             <div class="row mg-b-25">
                 <div class="col-lg-4">
-                <div class="form-group">
-                    <label class="form-control-label">Product Name: <span class="tx-danger">*</span></label>
-                    <strong>{{ $value->product_name }}</strong>
-                </div>
+                    <div class="form-group">
+                        <label class="form-control-label">Product Name: <span class="tx-danger">*</span></label>
+                        <strong>{{ $value->product_name }}</strong>
+                    </div>
                 </div><!-- col-4 -->
 
                 <div class="col-lg-4">
-                <div class="form-group">
-                    <label class="form-control-label">Product Code: <span class="tx-danger">*</span></label>
-                    <strong>{{ $value->product_code }}</strong>
-                </div>
+                    <div class="form-group">
+                        <label class="form-control-label">Product Code: <span class="tx-danger">*</span></label>
+                        <strong>{{ $value->product_code }}</strong>
+                    </div>
                 </div><!-- col-4 -->
 
                 <div class="col-lg-4">
-                <div class="form-group">
-                    <label class="form-control-label">Product Quantity: <span class="tx-danger">*</span></label>
-                    <strong>{{ $value->product_quantity }}</strong>
-                </div>
-                </div><!-- col-4 -->
-
-                <div class="col-lg-4">
-                <div class="form-group mg-b-10-force">
-                    <label class="form-control-label">Category: <span class="tx-danger">*</span></label>
-                    <strong>{{ $value->category_name }}</strong>
-                </div>
-                </div><!-- col-4 -->
-
-                <div class="col-lg-4">
-                    <div class="form-group mg-b-10-force">
-                    <label class="form-control-label">Sub-Category: <span class="tx-danger">*</span></label>
-                    <strong>{{ $value->subcategory_name }}</strong>
+                    <div class="form-group">
+                        <label class="form-control-label">Product Quantity: <span class="tx-danger">*</span></label>
+                        <strong>{{ $value->product_quantity }}</strong>
                     </div>
                 </div><!-- col-4 -->
 
                 <div class="col-lg-4">
                     <div class="form-group mg-b-10-force">
-                    <label class="form-control-label">Brand: <span class="tx-danger">*</span></label>
-                    <strong>{{ $value->brand_name }}</strong>
+                        <label class="form-control-label">Category: <span class="tx-danger">*</span></label>
+                        <strong>{{ $value->category_name }}</strong>
+                    </div>
+                </div><!-- col-4 -->
+
+                <div class="col-lg-4">
+                    <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Sub-Category: <span class="tx-danger">*</span></label>
+                        <strong>{{ $value->subcategory_name }}</strong>
+                    </div>
+                </div><!-- col-4 -->
+
+                <div class="col-lg-4">
+                    <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Brand: <span class="tx-danger">*</span></label>
+                        <strong>{{ $value->brand_name }}</strong>
                     </div>
                 </div><!-- col-4 -->
 
                 <div class="col-lg-4">
                     <div class="form-group">
-                    <label class="form-control-label">Product Size: <span class="tx-danger">*</span></label>
-                    <strong>{{ $value->product_size }}</strong>
+                        <label class="form-control-label">Product Size: <span class="tx-danger">*</span></label>
+                        <strong>{{ $value->product_size }}</strong>
                     </div>
                 </div><!-- col-4 -->
                 <div class="col-lg-4">
                     <div class="form-group">
-                    <label class="form-control-label">Product Color: <span class="tx-danger">*</span></label>
-                    <strong>{{ $value->product_color }}</strong>
-                    </div>
-                </div><!-- col-4 -->
-
-                <div class="col-lg-4">
-                    <div class="form-group">
-                    <label class="form-control-label">Product Price: <span class="tx-danger">*</span></label>
-                    <strong>{{ $value->product_price }}</strong>
+                        <label class="form-control-label">Product Color: <span class="tx-danger">*</span></label>
+                        <strong>{{ $value->product_color }}</strong>
                     </div>
                 </div><!-- col-4 -->
 
                 <div class="col-lg-4">
                     <div class="form-group">
-                    <label class="form-control-label">Selling price: <span class="tx-danger">*</span></label>
-                    <strong>{{ $value->selling_price }}</strong>
+                        <label class="form-control-label">Product Price: <span class="tx-danger">*</span></label>
+                        <strong>{{ $value->product_price }}</strong>
+                    </div>
+                </div><!-- col-4 -->
+
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label class="form-control-label">Selling price: <span class="tx-danger">*</span></label>
+                        <strong>{{ $value->selling_price }}</strong>
                     </div>
                 </div><!-- col-4 -->
 
                 <div class="col-lg-12">
                     <div class="form-group">
-                    <label class="form-control-label">Product Details: <span class="tx-danger">*</span></label>
-                    <strong>{!! $value->product_details !!}</strong>
+                        <label class="form-control-label">Product Details: <span class="tx-danger">*</span></label>
+                        <strong>{!! $value->product_details !!}</strong>
                     </div>
                 </div><!-- col-4 -->
                 
                 <div class="col-lg-4">
                     <div class="form-group">
-                    <label class="form-control-label">Video Link: <span class="tx-danger">*</span></label>
-                    <strong>{{ $value->video_link }}</strong>
+                        <label class="form-control-label">Video Link: <span class="tx-danger">*</span></label>
+                        <strong>{{ $value->video_link }}</strong>
                     </div>
                 </div><!-- col-4 -->
 
                 <div class="col-lg-4">
                     <label>Image One (Main Thumbnail)<span class="text-danger">*</span></label>
-                    <label class="custom-file">
-                    <img src="{{URL::to($value->image_one)}}" style="height: 80px; width:80px;" alt="">
+                        <label class="custom-file">
+                        <img src="{{URL::to($value->image_one)}}" style="height: 80px; width:80px;" alt="">
                     </label>
                 </div><!-- col -->
                 <div class="col-lg-4 mg-t-40 mg-lg-t-0">
@@ -184,3 +184,4 @@
       </div><!-- card -->
   </div><!-- sl-pagebody -->
 </div><!-- sl-mainpanel -->
+@endsection

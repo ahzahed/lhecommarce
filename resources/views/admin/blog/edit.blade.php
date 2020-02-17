@@ -19,72 +19,72 @@
         <form action="{{url('update/post/'.$post->id)}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-layout">
-            <div class="row mg-b-25">
-                <div class="col-lg-4">
-                <div class="form-group">
-                    <label class="form-control-label">Post Tittle [English] <span class="tx-danger">*</span></label>
-                    <input class="form-control" type="text" name="post_title_en" value="{{$post->post_title_en}}">
-                </div>
-                </div><!-- col-4 -->
+                <div class="row mg-b-25">
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label class="form-control-label">Post Tittle [English] <span class="tx-danger">*</span></label>
+                            <input class="form-control" type="text" name="post_title_en" value="{{$post->post_title_en}}">
+                        </div>
+                    </div><!-- col-4 -->
 
-                <div class="col-lg-4">
-                <div class="form-group">
-                    <label class="form-control-label">Post Tittle [Bangla] <span class="tx-danger">*</span></label>
-                    <input class="form-control" type="text" name="post_title_bn" value="{{$post->post_title_bn}}">
-                </div>
-                </div><!-- col-4 -->
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label class="form-control-label">Post Tittle [Bangla] <span class="tx-danger">*</span></label>
+                            <input class="form-control" type="text" name="post_title_bn" value="{{$post->post_title_bn}}">
+                        </div>
+                    </div><!-- col-4 -->
 
-                <div class="col-lg-4">
-                <div class="form-group mg-b-10-force">
-                    <label class="form-control-label">Category: <span class="tx-danger">*</span></label>
-                    <select class="form-control" name="category_id">
-                        @foreach ($category as $value)
-                            <option value="{{ $value->id }}" <?php if($value->id == $post->category_id){echo "selected";} ?>>{{ $value->category_name_en }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                </div><!-- col-4 -->
+                    <div class="col-lg-4">
+                        <div class="form-group mg-b-10-force">
+                            <label class="form-control-label">Category: <span class="tx-danger">*</span></label>
+                            <select class="form-control" name="category_id">
+                                @foreach ($category as $value)
+                                    <option value="{{ $value->id }}" <?php if($value->id == $post->category_id){echo "selected";} ?>>{{ $value->category_name_en }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div><!-- col-4 -->
 
-                <div class="col-lg-12">
-                    <div class="form-group">
-                    <label class="form-control-label">Product Details [English]: <span class="tx-danger">*</span></label>
-                    <textarea class="form-control" name="details_en" id="editor" cols="30" rows="10">
-                        {{$post->details_en}}
-                    </textarea>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label class="form-control-label">Product Details [English]: <span class="tx-danger">*</span></label>
+                            <textarea class="form-control" name="details_en" id="editor" cols="30" rows="10">
+                                {{$post->details_en}}
+                            </textarea>
+                        </div>
+                    </div><!-- col-4 -->
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label class="form-control-label">Product Details [Bangla]: <span class="tx-danger">*</span></label>
+                            <textarea class="form-control" name="details_bn" id="editor1" cols="30" rows="10">
+                                {{$post->details_bn}}
+                            </textarea>
+                        </div>
+                    </div><!-- col-4 -->
+
+                    <div class="col-lg-4">
+                        <label>Image One (Main Thumbnail)<span class="text-danger">*</span></label>
+                            <label class="custom-file">
+                            <input type="file" id="file" class="custom-file-input" name="post_image" onchange="readURL(this);">
+                            <span class="custom-file-control"></span>
+                            <img id="image">
+                        </label>
+                    </div><!-- col -->
+
+                    <div class="col-lg-4">
+                        <label>Old Image<span class="text-danger">*</span></label>
+                            <label class="custom-file">
+                            <img src="{{ URL::to($post->post_image) }}" height="80px" width="80px" alt="">
+                            <input type="hidden" name="old_image" value="{{ $post->post_image }}">
+                        </label>
+                    </div><!-- col -->
                     </div>
-                </div><!-- col-4 -->
-                <div class="col-lg-12">
-                    <div class="form-group">
-                    <label class="form-control-label">Product Details [Bangla]: <span class="tx-danger">*</span></label>
-                    <textarea class="form-control" name="details_bn" id="editor1" cols="30" rows="10">
-                        {{$post->details_bn}}
-                    </textarea>
-                    </div>
-                </div><!-- col-4 -->
-
-                <div class="col-lg-4">
-                    <label>Image One (Main Thumbnail)<span class="text-danger">*</span></label>
-                    <label class="custom-file">
-                    <input type="file" id="file" class="custom-file-input" name="post_image" onchange="readURL(this);">
-                    <span class="custom-file-control"></span>
-                    <img id="image">
-                    </label>
-                </div><!-- col -->
-
-                <div class="col-lg-4">
-                    <label>Old Image<span class="text-danger">*</span></label>
-                    <label class="custom-file">
-                    <img src="{{ URL::to($post->post_image) }}" height="80px" width="80px" alt="">
-                    <input type="hidden" name="old_image" value="{{ $post->post_image }}">
-                    </label>
-                </div><!-- col -->
                 </div>
-            </div>
 
-            <div class="form-layout-footer">
-                <button class="btn btn-info mg-r-5" type="submit">Submit Form</button>
-                <button class="btn btn-secondary">Cancel</button>
-            </div><!-- form-layout-footer -->
+                <div class="form-layout-footer">
+                    <button class="btn btn-info mg-r-5" type="submit">Submit Form</button>
+                    <button class="btn btn-secondary">Cancel</button>
+                </div><!-- form-layout-footer -->
             </div><!-- form-layout -->
         </form>
       </div><!-- card -->

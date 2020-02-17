@@ -12,14 +12,15 @@
       <h6 class="card-body-title">Category List
         <a href="#" class="btn btn-warning btn-sm" style="float:right;" data-toggle="modal" data-target="#exampleModal">Add New</a>
       </h6>
-    </br>
+      </br>
       <div class="table-wrapper">
         <table id="datatable1" class="table display responsive nowrap">
           <thead>
             <tr>
               <th class="wd-15p">ID</th>
               <th class="wd-15p">Category Name</th>
-              <th class="wd-20p">Action</th>
+              <th class="wd-15p">Action</th>
+              <th class="wd-20p"></th>
             </tr>
           </thead>
           <tbody>
@@ -31,6 +32,7 @@
                     <a href="{{ URL::to('edit/category/'.$value->id) }}" class="btn btn-primary btn-sm">Edit</a>
                     <a href="{{ URL::to('delete/category/'.$value->id) }}" class="btn btn-danger btn-sm" id="delete">Delete</a>
                 </td>
+                <td></td>
               </tr>
               @endforeach
           </tbody>
@@ -38,6 +40,7 @@
       </div><!-- table-wrapper -->
     </div><!-- card -->
   </div><!-- sl-pagebody -->
+</div>
   
   <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

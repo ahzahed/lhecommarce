@@ -10,16 +10,16 @@
 
     <div class="card pd-20 pd-sm-40">
       <h6 class="card-body-title">Sub-Category Update</h6>
-    </br>
+      </br>
       <div class="table-wrapper">
         @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
+          <div class="alert alert-danger">
+              <ul>
+                  @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                  @endforeach
+              </ul>
+          </div>
         @endif
         <form method="POST" action="{{ url('update/subcategory/'.$subcategory->id) }}">
             @csrf
@@ -46,5 +46,6 @@
       </div><!-- table-wrapper -->
     </div><!-- card -->
   </div><!-- sl-pagebody -->
+</div>
   
 @endsection

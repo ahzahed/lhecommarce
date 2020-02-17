@@ -10,7 +10,7 @@
 
     <div class="card pd-20 pd-sm-40">
       <h6 class="card-body-title">Coupon Update</h6>
-    </br>
+      </br>
       <div class="table-wrapper">
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -22,23 +22,24 @@
             </div>
         @endif
         <form method="POST" action="{{ url('update/coupon/'.$coupon->id) }}">
-            @csrf
-            <div class="modal-body">
-                <div class="form-group">
-                    <label>Coupon Code</label>
-                    <input type="text" class="form-control" name="coupon" value="{{ $coupon->coupon }}">
-                </div>
-                <div class="form-group">
-                    <label>Coupon Discount</label>
-                    <input type="text" class="form-control" name="discount" value="{{ $coupon->discount }}">
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Update</button>
-            </div>
+          @csrf
+          <div class="modal-body">
+              <div class="form-group">
+                  <label>Coupon Code</label>
+                  <input type="text" class="form-control" name="coupon" value="{{ $coupon->coupon }}">
+              </div>
+              <div class="form-group">
+                  <label>Coupon Discount</label>
+                  <input type="text" class="form-control" name="discount" value="{{ $coupon->discount }}">
+              </div>
+          </div>
+          <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">Update</button>
+          </div>
         </form>
       </div><!-- table-wrapper -->
     </div><!-- card -->
   </div><!-- sl-pagebody -->
+</div>
   
 @endsection

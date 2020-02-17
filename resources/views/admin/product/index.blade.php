@@ -12,19 +12,20 @@
       <h6 class="card-body-title">Product List
         <a href="#" class="btn btn-warning btn-sm" style="float:right;" data-toggle="modal" data-target="#exampleModal">Add New</a>
       </h6>
-    </br>
+      </br>
       <div class="table-wrapper">
         <table id="datatable1" class="table display responsive nowrap">
           <thead>
             <tr>
               <th class="wd-15p">Product ID</th>
               <th class="wd-15p">Product Name</th>
-              <th class="wd-20p">Image</th>
-              <th class="wd-20p">Category</th>
-              <th class="wd-20p">Brand</th>
-              <th class="wd-20p">Quantity</th>
-              <th class="wd-20p">Status</th>
-              <th class="wd-20p">Action</th>
+              <th class="wd-15p">Image</th>
+              <th class="wd-15p">Category</th>
+              <th class="wd-15p">Brand</th>
+              <th class="wd-15p">Quantity</th>
+              <th class="wd-15p">Status</th>
+              <th class="wd-15p">Action</th>
+              <th class="wd-20p"></th>
             </tr>
           </thead>
           <tbody>
@@ -50,6 +51,7 @@
                     <a href="{{ URL::to('active/product/'.$value->id) }}" class="btn btn-success btn-sm" title="active"> <i class="fa fa-thumbs-up"></i></a>
                     @endif
                 </td>
+                <td></td>
               </tr>
               @endforeach
           </tbody>
@@ -57,5 +59,6 @@
       </div><!-- table-wrapper -->
     </div><!-- card -->
   </div><!-- sl-pagebody -->
+</div>
   
 @endsection

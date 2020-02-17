@@ -18,160 +18,160 @@
         <form action="{{ route('store.product') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-layout">
-            <div class="row mg-b-25">
-                <div class="col-lg-4">
-                <div class="form-group">
-                    <label class="form-control-label">Product Name: <span class="tx-danger">*</span></label>
-                    <input class="form-control" type="text" name="product_name" placeholder="Product Name">
-                </div>
-                </div><!-- col-4 -->
-
-                <div class="col-lg-4">
-                <div class="form-group">
-                    <label class="form-control-label">Product Code: <span class="tx-danger">*</span></label>
-                    <input class="form-control" type="text" name="product_code">
-                </div>
-                </div><!-- col-4 -->
-
-                <div class="col-lg-4">
-                <div class="form-group">
-                    <label class="form-control-label">Product Quantity: <span class="tx-danger">*</span></label>
-                    <input class="form-control" type="text" name="product_quantity">
-                </div>
-                </div><!-- col-4 -->
-
-                <div class="col-lg-4">
-                <div class="form-group mg-b-10-force">
-                    <label class="form-control-label">Category: <span class="tx-danger">*</span></label>
-                    <select class="form-control" name="category_id">
-                        @foreach ($category as $value)
-                            <option value="{{ $value->id }}">{{ $value->category_name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                </div><!-- col-4 -->
-
-                <div class="col-lg-4">
-                    <div class="form-group mg-b-10-force">
-                    <label class="form-control-label">Sub-Category: <span class="tx-danger">*</span></label>
-                    <select class="form-control" name="subcategory_id"></select>
-                    </div>
-                </div><!-- col-4 -->
-
-                <div class="col-lg-4">
-                    <div class="form-group mg-b-10-force">
-                    <label class="form-control-label">Brand: <span class="tx-danger">*</span></label>
-                    <select class="form-control" name="brand_id">
-                        @foreach ($brand as $item)
-                            <option value="{{ $item->id }}">{{ $item->brand_name }}</option>
-                        @endforeach
-                    </select>
-                    </div>
-                </div><!-- col-4 -->
-
-                <div class="col-lg-4">
-                    <div class="form-group">
-                    <label class="form-control-label">Product Size: <span class="tx-danger">*</span></label>
-                    <input class="form-control" type="text" data-role="tagsinput" name="product_size">
-                    </div>
-                </div><!-- col-4 -->
-                <div class="col-lg-4">
-                    <div class="form-group">
-                    <label class="form-control-label">Product Color: <span class="tx-danger">*</span></label>
-                    <input class="form-control" type="text" data-role="tagsinput" name="product_color">
-                    </div>
-                </div><!-- col-4 -->
-
-                <div class="col-lg-4">
-                    <div class="form-group">
-                    <label class="form-control-label">Product Price: <span class="tx-danger">*</span></label>
-                    <input class="form-control" type="text" name="product_price">
-                    </div>
-                </div><!-- col-4 -->
-
-                <div class="col-lg-4">
-                    <div class="form-group">
-                    <label class="form-control-label">Selling price: <span class="tx-danger">*</span></label>
-                    <input class="form-control" type="text" name="selling_price">
-                    </div>
-                </div><!-- col-4 -->
-
-                <div class="col-lg-12">
-                    <div class="form-group">
-                    <label class="form-control-label">Product Details: <span class="tx-danger">*</span></label>
-                    <textarea class="form-control" name="product_details" id="editor" cols="30" rows="10"></textarea>
-                    </div>
-                </div><!-- col-4 -->
-                
-                <div class="col-lg-4">
-                    <div class="form-group">
-                    <label class="form-control-label">Video Link: <span class="tx-danger">*</span></label>
-                    <input class="form-control" type="text" name="video_link">
-                    </div>
-                </div><!-- col-4 -->
-
-                <div class="col-lg-4">
-                    <label>Image One (Main Thumbnail)<span class="text-danger">*</span></label>
-                    <label class="custom-file">
-                    <input type="file" id="file" class="custom-file-input" name="image_one" onchange="readURL(this);" required>
-                    <span class="custom-file-control"></span>
-                    <img id="one">
-                    </label>
-                </div><!-- col -->
-                <div class="col-lg-4 mg-t-40 mg-lg-t-0">
-                    <label>Image Two<span class="text-danger">*</span></label>
-                    <label class="custom-file">
-                    <input type="file" id="file" class="custom-file-input" name="image_two" onchange="readURL1(this);" required>
-                    <span class="custom-file-control custom-file-control-primary"></span>
-                    <img id="two">
-                    </label>
-                </div><!-- col -->
-                <div class="col-lg-4 mg-t-40 mg-lg-t-0">
-                    <label>Image Three<span class="text-danger">*</span></label>
-                    <label class="custom-file">
-                    <input type="file" id="file" class="custom-file-input" name="image_three" onchange="readURL2(this);" required>
-                    <span class="custom-file-control custom-file-control-inverse"></span>
-                    <img id="three">
-                    </label>
-                </div><!-- col -->
-                <div class="row p-3">
+                <div class="row mg-b-25">
                     <div class="col-lg-4">
-                        <label class="ckbox">
-                            <input type="checkbox" name="hot_deal" value="1">
-                            <span>Hot Deal</span>
-                        </label>
-                    </div>
+                        <div class="form-group">
+                            <label class="form-control-label">Product Name: <span class="tx-danger">*</span></label>
+                            <input class="form-control" type="text" name="product_name" placeholder="Product Name">
+                        </div>
+                    </div><!-- col-4 -->
+
                     <div class="col-lg-4">
-                        <label class="ckbox">
-                            <input type="checkbox" name="best_rated" value="1">
-                            <span>Best Rated</span>
-                        </label>
-                    </div>
+                        <div class="form-group">
+                            <label class="form-control-label">Product Code: <span class="tx-danger">*</span></label>
+                            <input class="form-control" type="text" name="product_code">
+                        </div>
+                    </div><!-- col-4 -->
+
                     <div class="col-lg-4">
-                        <label class="ckbox">
-                            <input type="checkbox" name="mid_slider" value="1">
-                            <span>Mid Slider</span>
-                        </label>
-                    </div>
+                        <div class="form-group">
+                            <label class="form-control-label">Product Quantity: <span class="tx-danger">*</span></label>
+                            <input class="form-control" type="text" name="product_quantity">
+                        </div>
+                    </div><!-- col-4 -->
+
                     <div class="col-lg-4">
-                        <label class="ckbox">
-                            <input type="checkbox" name="hot_new" value="1">
-                            <span>Hot New</span>
-                        </label>
-                    </div>
+                        <div class="form-group mg-b-10-force">
+                            <label class="form-control-label">Category: <span class="tx-danger">*</span></label>
+                            <select class="form-control" name="category_id">
+                                @foreach ($category as $value)
+                                    <option value="{{ $value->id }}">{{ $value->category_name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div><!-- col-4 -->
+
                     <div class="col-lg-4">
-                        <label class="ckbox">
-                            <input type="checkbox" name="trend" value="1">
-                            <span>Trend Product</span>
+                        <div class="form-group mg-b-10-force">
+                            <label class="form-control-label">Sub-Category: <span class="tx-danger">*</span></label>
+                            <select class="form-control" name="subcategory_id"></select>
+                        </div>
+                    </div><!-- col-4 -->
+
+                    <div class="col-lg-4">
+                        <div class="form-group mg-b-10-force">
+                            <label class="form-control-label">Brand: <span class="tx-danger">*</span></label>
+                            <select class="form-control" name="brand_id">
+                                @foreach ($brand as $item)
+                                    <option value="{{ $item->id }}">{{ $item->brand_name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div><!-- col-4 -->
+
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label class="form-control-label">Product Size: <span class="tx-danger">*</span></label>
+                            <input class="form-control" type="text" data-role="tagsinput" name="product_size">
+                        </div>
+                    </div><!-- col-4 -->
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label class="form-control-label">Product Color: <span class="tx-danger">*</span></label>
+                            <input class="form-control" type="text" data-role="tagsinput" name="product_color">
+                        </div>
+                    </div><!-- col-4 -->
+
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label class="form-control-label">Product Price: <span class="tx-danger">*</span></label>
+                            <input class="form-control" type="text" name="product_price">
+                        </div>
+                    </div><!-- col-4 -->
+
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label class="form-control-label">Selling price: <span class="tx-danger">*</span></label>
+                            <input class="form-control" type="text" name="selling_price">
+                        </div>
+                    </div><!-- col-4 -->
+
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label class="form-control-label">Product Details: <span class="tx-danger">*</span></label>
+                            <textarea class="form-control" name="product_details" id="editor" cols="30" rows="10"></textarea>
+                        </div>
+                    </div><!-- col-4 -->
+                    
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label class="form-control-label">Video Link: <span class="tx-danger">*</span></label>
+                            <input class="form-control" type="text" name="video_link">
+                        </div>
+                    </div><!-- col-4 -->
+
+                    <div class="col-lg-4">
+                        <label>Image One (Main Thumbnail)<span class="text-danger">*</span></label>
+                        <label class="custom-file">
+                            <input type="file" id="file" class="custom-file-input" name="image_one" onchange="readURL(this);" required>
+                            <span class="custom-file-control"></span>
+                            <img id="one">
                         </label>
+                    </div><!-- col -->
+                    <div class="col-lg-4 mg-t-40 mg-lg-t-0">
+                        <label>Image Two<span class="text-danger">*</span></label>
+                        <label class="custom-file">
+                            <input type="file" id="file" class="custom-file-input" name="image_two" onchange="readURL1(this);" required>
+                            <span class="custom-file-control custom-file-control-primary"></span>
+                            <img id="two">
+                        </label>
+                    </div><!-- col -->
+                    <div class="col-lg-4 mg-t-40 mg-lg-t-0">
+                        <label>Image Three<span class="text-danger">*</span></label>
+                        <label class="custom-file">
+                            <input type="file" id="file" class="custom-file-input" name="image_three" onchange="readURL2(this);" required>
+                            <span class="custom-file-control custom-file-control-inverse"></span>
+                            <img id="three">
+                        </label>
+                    </div><!-- col -->
+                    <div class="row p-3">
+                        <div class="col-lg-4">
+                            <label class="ckbox">
+                                <input type="checkbox" name="hot_deal" value="1">
+                                <span>Hot Deal</span>
+                            </label>
+                        </div>
+                        <div class="col-lg-4">
+                            <label class="ckbox">
+                                <input type="checkbox" name="best_rated" value="1">
+                                <span>Best Rated</span>
+                            </label>
+                        </div>
+                        <div class="col-lg-4">
+                            <label class="ckbox">
+                                <input type="checkbox" name="mid_slider" value="1">
+                                <span>Mid Slider</span>
+                            </label>
+                        </div>
+                        <div class="col-lg-4">
+                            <label class="ckbox">
+                                <input type="checkbox" name="hot_new" value="1">
+                                <span>Hot New</span>
+                            </label>
+                        </div>
+                        <div class="col-lg-4">
+                            <label class="ckbox">
+                                <input type="checkbox" name="trend" value="1">
+                                <span>Trend Product</span>
+                            </label>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="form-layout-footer">
-                <button class="btn btn-info mg-r-5" type="submit">Submit Form</button>
-                <button class="btn btn-secondary">Cancel</button>
-            </div><!-- form-layout-footer -->
+                <div class="form-layout-footer">
+                    <button class="btn btn-info mg-r-5" type="submit">Submit Form</button>
+                    <button class="btn btn-secondary">Cancel</button>
+                </div><!-- form-layout-footer -->
             </div><!-- form-layout -->
         </form>
       </div><!-- card -->

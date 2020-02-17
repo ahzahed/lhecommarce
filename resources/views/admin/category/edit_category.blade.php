@@ -10,7 +10,7 @@
 
     <div class="card pd-20 pd-sm-40">
       <h6 class="card-body-title">Category Update</h6>
-    </br>
+      </br>
       <div class="table-wrapper">
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -37,5 +37,6 @@
       </div><!-- table-wrapper -->
     </div><!-- card -->
   </div><!-- sl-pagebody -->
+</div>
   
 @endsection
