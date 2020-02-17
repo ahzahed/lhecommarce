@@ -43,7 +43,7 @@
                 <td>
                     <a href="{{ URL::to('edit/product/'.$value->id) }}" class="btn btn-sm btn-primary"> <i class="fa fa-edit"></i></a>
                     <a href="{{ URL::to('delete/product/'.$value->id) }}" class="btn btn-danger btn-sm" id="delete"><i class="fa fa-trash"></i></a>
-                    <a href="{{ URL::to('edit/product/'.$value->id) }}" class="btn btn-warning btn-sm"> <i class="fa fa-eye"></i> </a>
+                    <a href="{{ URL::to('view/product/'.$value->id) }}" class="btn btn-warning btn-sm"> <i class="fa fa-eye"></i> </a>
                     @if($value->status==1)
                     <a href="{{ URL::to('inactive/product/'.$value->id) }}" class="btn btn-danger btn-sm" title="Inactive"> <i class="fa fa-thumbs-down"></i> </a>
                     @else

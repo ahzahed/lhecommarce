@@ -68,7 +68,18 @@ Route::post('admin/store/product', 'Admin\Product\ProductController@store')->nam
 Route::get('inactive/product/{id}', 'Admin\Product\ProductController@Inactive');
 Route::get('active/product/{id}', 'Admin\Product\ProductController@Active');
 Route::get('delete/product/{id}', 'Admin\Product\ProductController@DeleteProduct');
+Route::get('view/product/{id}', 'Admin\Product\ProductController@ViewProduct');
+Route::get('edit/product/{id}', 'Admin\Product\ProductController@EditProduct');
+Route::post('update/product/withoutphoto/{id}', 'Admin\Product\ProductController@UpdateProductWithoutPhoto');
+Route::post('update/product/photo/{id}', 'Admin\Product\ProductController@UpdateProductPhoto');
 
+//Blogs routes
+Route::get('admin/add/post', 'Admin\Blog\PostController@create')->name('add.blogpost');
+Route::post('admin/store/post', 'Admin\Blog\PostController@store')->name('store.post');
+Route::get('admin/all/post', 'Admin\Blog\PostController@index')->name('all.blogpost');
+Route::get('delete/post/{id}', 'Admin\Blog\PostController@DeletePost');
+Route::get('edit/post/{id}', 'Admin\Blog\PostController@EditPost');
+Route::post('update/post/{id}', 'Admin\Blog\PostController@update');
 
 //Get subcategory by ajax
 Route::get('get/subcategory/{category_id}', 'Admin\Product\ProductController@GetSubCat');
