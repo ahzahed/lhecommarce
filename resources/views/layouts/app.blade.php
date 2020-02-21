@@ -7,7 +7,8 @@
 <meta name="description" content="OneTech shop project">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/bootstrap4/bootstrap.min.css') }}">
-<link href="{{ asset('public/frontend/plugins/fontawesome-free-5.0.1/css/fontawesome-all.css') }}" rel="stylesheet" type="text/css">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/plugins/OwlCarousel2-2.2.1/owl.carousel.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/plugins/OwlCarousel2-2.2.1/owl.carousel.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/plugins/OwlCarousel2-2.2.1/owl.theme.default.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/plugins/OwlCarousel2-2.2.1/animate.css') }}">
@@ -57,8 +58,13 @@
 							</div>
 							<div class="top_bar_user">
 								<div class="user_icon"><img src="{{ asset('public/frontend/images/user.svg') }}" alt=""></div>
-								<div><a href="{{ route('register') }}">Register</a></div>
-								<div><a href="{{ route('login') }}">Sign in</a></div>
+								@guest
+									<div><a href="{{ route('register') }}">Register</a></div>
+									<div><a href="{{ route('login') }}">Sign in</a></div>
+								@else
+									<div><a href="{{ route('home') }}">Profile</a></div>
+								@endguest
+								
 							</div>
 						</div>
 					</div>
@@ -136,8 +142,9 @@
 				</div>
 			</div>
 		</div>
+	</header>
 
-        @yield('content')
+	@yield('content')
 
 	<!-- Footer -->
 
