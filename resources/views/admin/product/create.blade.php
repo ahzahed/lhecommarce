@@ -84,15 +84,15 @@
 
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="form-control-label">Product Price: <span class="tx-danger">*</span></label>
-                            <input class="form-control" type="text" name="product_price">
+                            <label class="form-control-label">Selling price: <span class="tx-danger">*</span></label>
+                            <input class="form-control" type="text" name="selling_price">
                         </div>
                     </div><!-- col-4 -->
 
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="form-control-label">Selling price: <span class="tx-danger">*</span></label>
-                            <input class="form-control" type="text" name="selling_price">
+                            <label class="form-control-label">Discount Price: <span class="tx-danger">*</span></label>
+                            <input class="form-control" type="text" name="discount_price">
                         </div>
                     </div><!-- col-4 -->
 

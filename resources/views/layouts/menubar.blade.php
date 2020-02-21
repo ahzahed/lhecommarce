@@ -207,8 +207,13 @@
 				<div class="banner_product_image"><img src="{{ asset($slider->image_one) }}" alt=""></div>
 				<div class="col-lg-5 offset-lg-4 fill_height">
 					<div class="banner_content">
-						<h1 class="banner_text">new era of smartphones</h1>
-						<div class="banner_price"><span>${{$slider->product_price}}</span>${{$slider->selling_price}}</div>
+						<h1 class="banner_text">{{$slider->product_name}}</h1>
+						<div class="banner_price">
+							@if ($slider->discount_price == NULL)
+								<h2>${{$slider->selling_price}}</h2>
+							@else
+								<span>${{$slider->selling_price}}</span>${{$slider->discount_price}}</div>
+							@endif
 						<div class="banner_product_name">{{$slider->brand_name}}</div>
 						<div class="button banner_button"><a href="#">Shop Now</a></div>
 					</div>

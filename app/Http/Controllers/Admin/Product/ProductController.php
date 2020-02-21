@@ -37,7 +37,7 @@ class ProductController extends Controller
         $data['brand_id']=$request->brand_id;
         $data['product_size']=$request->product_size;
         $data['product_color']=$request->product_color;
-        $data['product_price']=$request->product_price;
+        $data['discount_price']=$request->discount_price;
         $data['selling_price']=$request->selling_price;
         $data['product_details']=$request->product_details;
         $data['video_link']=$request->video_link;
