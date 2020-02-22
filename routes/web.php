@@ -24,7 +24,7 @@ Route::post('/admin/password/update','AdminController@Update_pass')->name('admin
 Route::get('admin/logout', 'AdminController@logout')->name('admin.logout');
 
 
-//admin section
+// ---admin section---
 
 //category
 Route::get('admin/categories', 'Admin\Category\CategoryController@category')->name('categories');
@@ -83,6 +83,9 @@ Route::post('update/post/{id}', 'Admin\Blog\PostController@update');
 
 //Get subcategory by ajax
 Route::get('get/subcategory/{category_id}', 'Admin\Product\ProductController@GetSubCat');
+
+//Wishlist
+Route::get('add/wishlist/{id}', 'Admin\WishlistController@AddWishlist');
 
 
 
