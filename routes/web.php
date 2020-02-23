@@ -88,11 +88,13 @@ Route::get('get/subcategory/{category_id}', 'Admin\Product\ProductController@Get
 Route::get('add/wishlist/{id}', 'Admin\WishlistController@AddWishlist');
 
 //cart
-Route::get('add/to/cart/{id}', 'Admin\CartController@addCart');
+Route::get('add/to/cart/{id}', 'Admin\CartController@AddCart');
 Route::get('cart/check', 'Admin\CartController@cartCheck');
 Route::get('products/cart', 'Admin\CartController@showCart')->name('show.cart');
 Route::get('remove/cart/{rowId}', 'Admin\CartController@removeCart');
 Route::post('update/cart/item', 'Admin\CartController@updateCart')->name('update.cartitem');
+Route::get('cart/product/view/{id}','Admin\CartController@ViewProduct');
+Route::post('insert/into/cart/','Admin\CartController@InsertCart')->name('insert.into.cart');
 
 // Socialite
 Route::get('/auth/redirect/{provider}', 'Admin\SocialController@redirect');

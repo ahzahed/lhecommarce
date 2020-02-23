@@ -283,6 +283,7 @@
 <script src="{{ asset('public/frontend/plugins/easing/easing.js') }}"></script>
 <script src="{{ asset('public/frontend/js/product_custom.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.8.1/dist/sweetalert2.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script src="{{ asset('public/frontend/plugins/easing/easing.js') }}"></script>
 <script src="{{ asset('public/frontend/js/custom.js') }}"></script>

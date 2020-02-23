@@ -19,14 +19,21 @@
                                         <div class="cart_item_title">Name</div>
                                         <div class="cart_item_text">{{ $cart->name }}</div>
                                     </div>
+                                    @if ($cart->options->color==NULL)
+                                    @else
                                     <div class="cart_item_color cart_info_col">
                                         <div class="cart_item_title">Color</div>
                                         <div class="cart_item_text"><span style="background-color:#999999;"></span>{{ $cart->options->color }}</div>
                                     </div>
+                                    @endif
+                                    
+                                    @if ($cart->options->size==NULL)
+                                    @else
                                     <div class="cart_item_color cart_info_col">
                                         <div class="cart_item_title">Size</div>
-                                        <div class="cart_item_text">{{ $cart->options->size }}</div>
+                                        <div class="cart_item_text"><span style="background-color:#999999;"></span>{{ $cart->options->size }}</div>
                                     </div>
+                                    @endif
                                     <div class="cart_item_quantity cart_info_col">
                                         <div class="cart_item_title">Quantity</div>
                                         {{--  <div class="cart_item_text">{{ $cart->qty }}</div>  --}}
@@ -59,7 +66,7 @@
                     <div class="order_total">
                         <div class="order_total_content text-md-right">
                             <div class="order_total_title">Order Total:</div>
-                            <div class="order_total_amount">${{ Cart::total() }}</div>
+                            <div class="order_total_amount">${{ Cart::Subtotal() }}</div>
                         </div>
                     </div>
 
