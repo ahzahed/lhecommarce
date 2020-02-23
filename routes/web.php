@@ -95,6 +95,10 @@ Route::get('cart/check', 'Admin\CartController@cartCheck');
 Route::get('/auth/redirect/{provider}', 'Admin\SocialController@redirect');
 Route::get('/callback/{provider}', 'Admin\SocialController@callback');
 
+// -- Frontend start form here
+// Product Details
+Route::get('/product/details/{id}/{product_name}', 'ProductController@ProductView');
+Route::post('/cart/product/add/{id}', 'ProductController@AddCart');
 
 
 

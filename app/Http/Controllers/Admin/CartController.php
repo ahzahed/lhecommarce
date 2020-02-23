@@ -19,7 +19,9 @@ class CartController extends Controller
     	                $data['qty']=1;
     	                $data['price']= $cart->selling_price;          
     	 				$data['weight']=1;
-    	                $data['options']['image']=$cart->image_one;
+						$data['options']['image']=$cart->image_one;
+						$data['options']['color']='';
+						$data['options']['size']='';
     	               Cart::add($data);
     	               return response()->json(['success' => 'Successfully Added on your Cart']);
     	   }else{
@@ -28,7 +30,9 @@ class CartController extends Controller
     	                $data['qty']=1;
     	                $data['price']= $cart->discount_price;          
     	 				$data['weight']=1;
-    	                $data['options']['image']=$cart->image_one;   
+						$data['options']['image']=$cart->image_one;
+						$data['options']['color']='';
+						$data['options']['size']='';   
     	                return response()->json($data);  
     	                Cart::add($data);  
     	              return response()->json(['success' => 'Successfully Added on your Cart']);   

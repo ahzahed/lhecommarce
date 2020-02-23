@@ -18,6 +18,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.min.css">
 <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/main_styles.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/responsive.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/product_styles.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/product_responsive.css') }}">
 
 </head>
 
@@ -129,20 +131,26 @@
 					<!-- Wishlist -->
 					<div class="col-lg-4 col-9 order-lg-3 order-2 text-lg-left text-right">
 						<div class="wishlist_cart d-flex flex-row align-items-center justify-content-end">
+							@guest
+							@else
+							@php
+								$wishlist=DB::table('wishlists')->where('user_id',Auth::id())->get();
+							@endphp
 							<div class="wishlist d-flex flex-row align-items-center justify-content-end">
 								<div class="wishlist_icon"><img src="{{ asset('public/frontend/images/heart.png') }}" alt=""></div>
 								<div class="wishlist_content">
 									<div class="wishlist_text"><a href="#">Wishlist</a></div>
-									<div class="wishlist_count">115</div>
+									<div class="wishlist_count">{{ count($wishlist) }}</div>
 								</div>
 							</div>
+							@endguest
 
 							<!-- Cart -->
 							<div class="cart">
 								<div class="cart_container d-flex flex-row align-items-center justify-content-end">
 									<div class="cart_icon">
 										<img src="{{ asset('public/frontend/images/cart.png') }}" alt="">
-										<div class="cart_count"><span>10</span></div>
+										<div class="cart_count"><span>{{ Cart::count() }}</span></div>
 									</div>
 									<div class="cart_content">
 										<div class="cart_text"><a href="#">Cart</a></div>
@@ -273,6 +281,8 @@
 <script src="{{ asset('public/frontend/plugins/greensock/ScrollToPlugin.min.js') }}"></script>
 <script src="{{ asset('public/frontend/plugins/OwlCarousel2-2.2.1/owl.carousel.js') }}"></script>
 <script src="{{ asset('public/frontend/plugins/slick-1.8.0/slick.js') }}"></script>
+<script src="{{ asset('public/frontend/plugins/easing/easing.js') }}"></script>
+<script src="{{ asset('public/frontend/js/product_custom.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.8.1/dist/sweetalert2.all.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script src="{{ asset('public/frontend/plugins/easing/easing.js') }}"></script>
