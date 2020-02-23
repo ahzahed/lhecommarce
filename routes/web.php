@@ -90,15 +90,23 @@ Route::get('add/wishlist/{id}', 'Admin\WishlistController@AddWishlist');
 //cart
 Route::get('add/to/cart/{id}', 'Admin\CartController@addCart');
 Route::get('cart/check', 'Admin\CartController@cartCheck');
+Route::get('products/cart', 'Admin\CartController@showCart')->name('show.cart');
+Route::get('remove/cart/{rowId}', 'Admin\CartController@removeCart');
+Route::post('update/cart/item', 'Admin\CartController@updateCart')->name('update.cartitem');
 
 // Socialite
 Route::get('/auth/redirect/{provider}', 'Admin\SocialController@redirect');
 Route::get('/callback/{provider}', 'Admin\SocialController@callback');
 
+
 // -- Frontend start form here
 // Product Details
 Route::get('/product/details/{id}/{product_name}', 'ProductController@ProductView');
 Route::post('/cart/product/add/{id}', 'ProductController@AddCart');
+
+
+
+
 
 
 

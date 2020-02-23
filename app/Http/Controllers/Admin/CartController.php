@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Cart;
+use Gloudemans\Shoppingcart\Facades\Cart as FacadesCart;
 use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
@@ -43,6 +44,24 @@ class CartController extends Controller
     {
     	$content=Cart::content();
     	return response()->json($content);
-    }
+	}
+	
+	public function showCart(){
+		$cart = Cart::content();
+		return view('pages.cart',compact('cart'));
+	}
+
+	public function removeCart($rowId){
+		Cart::remove($rowId);
+		return redirect()->back();
+	}
+
+	public function updateCart(Request $request){
+		$rowId = $request->product_id;
+		$qty = $request->qty;
+		Cart::update($rowId,$qty);
+		return redirect()->back();
+
+	}
 
 }
