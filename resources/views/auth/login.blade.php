@@ -47,7 +47,7 @@
                     </form>
                     <div class="mt-3"><a href="{{route('password.request')}}">Forget Password?</a></div>
                     <div class="btn btn-primary mt-3"><a href="#" class="text-white">Log In With Facebook</a></div></br>
-                    <div class="btn btn-danger mt-3"><a href="#"></a>Log In With Google</div>
+                    <a href="{{ url('/auth/redirect/google') }}" class="btn btn-danger mt-3"><i class="fa fa-google"></i>Log In With Google</a>
                 </div>
             </div>
         </div>

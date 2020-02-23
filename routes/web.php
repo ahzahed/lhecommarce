@@ -87,7 +87,13 @@ Route::get('get/subcategory/{category_id}', 'Admin\Product\ProductController@Get
 //Wishlist
 Route::get('add/wishlist/{id}', 'Admin\WishlistController@AddWishlist');
 
+//cart
+Route::get('add/to/cart/{id}', 'Admin\CartController@addCart');
+Route::get('cart/check', 'Admin\CartController@cartCheck');
 
+// Socialite
+Route::get('/auth/redirect/{provider}', 'Admin\SocialController@redirect');
+Route::get('/callback/{provider}', 'Admin\SocialController@callback');
 
 
 

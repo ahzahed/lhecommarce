@@ -176,7 +176,7 @@
 													{{ $row->product_name }}
 												</a></div></div>
 												<div class="product_extras">
-													<button class="product_cart_button">Add to Cart</button>
+													<button class="product_cart_button addCart" data-id="{{ $row->id }}">Add to Cart</button>
 												</div>
 											</div>
 											{{--  <a href="{{URL::to('add/wishlist/'.$row->id)}}">  --}}
@@ -1711,6 +1711,41 @@
 				if(id){
 					$.ajax({
 						url: "{{ url('/add/wishlist/') }}/"+id,
+						type:"GET",
+						dataType:"json",
+						success:function(data){
+							const Toast = Swal.mixin({
+								toast: true,
+								position: 'top-end',
+								showConfirmButton: false,
+								timer: 3000,
+							  })
+							if($.isEmptyObject(data.error)){
+							  Toast.fire({
+								icon: 'success',
+								title: data.success
+							  })
+							}else{
+								Toast.fire({
+									icon: 'error',
+									title: data.error
+								  })
+							}
+						},
+					});
+				}else{
+					alert('danger');
+				}
+			});
+		});
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.addCart').on('click',function(){
+				var id=$(this).data('id');
+				if(id){
+					$.ajax({
+						url: "{{ url('/add/to/cart/') }}/"+id,
 						type:"GET",
 						dataType:"json",
 						success:function(data){
