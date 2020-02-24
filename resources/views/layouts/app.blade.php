@@ -40,37 +40,39 @@
 						<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="{{ asset('public/frontend/images/mail.png') }}" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
 						<div class="top_bar_content ml-auto">
 							<div class="top_bar_menu">
-								<ul class="standard_dropdown top_bar_dropdown">
+								<ul class="standard_dropdown">
+									@php
+										$language=session()->get('lang');
+									@endphp
 									<li>
-										<a href="#">English<i class="fas fa-chevron-down"></i></a>
-										<ul>
-											<li><a href="#">Italian</a></li>
-											<li><a href="#">Spanish</a></li>
-											<li><a href="#">Japanese</a></li>
-										</ul>
-									</li>
-									<li>
-										<a href="#">$ US dollar<i class="fas fa-chevron-down"></i></a>
-										<ul>
-											<li><a href="#">EUR Euro</a></li>
-											<li><a href="#">GBP British Pound</a></li>
-											<li><a href="#">JPY Japanese Yen</a></li>
-										</ul>
+										@if(session()->get('lang')=='bangla')
+										<a href="{{route('language.english')}}">English<i class="fas fa-chevron-down"></i></a>
+										@else
+										<a href="{{route('language.bangla')}}">Bangla<i class="fas fa-chevron-down"></i></a>
+										@endif
 									</li>
 								</ul>
 							</div>
 							<div class="top_bar_user">
 								@guest
-									<div><a href="{{ route('register') }}">Register</a></div>
-									<div><a href="{{ route('login') }}">Sign in</a></div>
+									<div><a href="{{ route('register') }}">
+										@if(session()->get('lang')=='bangla')
+										নিবন্ধন করুন
+										@else
+										Register @endif</a></div>
+									<div><a href="{{ route('login') }}">
+										@if(session()->get('lang')=='bangla')
+										সাইন ইন করুন
+										@else
+										Sign in @endif</a></div>
 								@else
                                 <ul class="standard_dropdown top_bar_dropdown">
                                     <li>
                                         <a href="{{ route('home') }}"><div class="user_icon"><img src="{{ asset('public/frontend/images/user.svg') }}" alt=""></div>
                                             Profile<i class="fas fa-chevron-down"></i></a>
                                         <ul>
-                                            <li><a href="#">Wishlist</a></li>
-                                            <li><a href="#">Checkout</a></li>
+                                            <li><a href="{{route('user.wishlist')}}">Wishlist</a></li>
+                                            <li><a href="{{route('user.checkout')}}">Checkout</a></li>
                                             <li><a href="#">Extra</a></li>
                                         </ul>
                                     </li>
@@ -94,7 +96,11 @@
 					<!-- Logo -->
 					<div class="col-lg-2 col-sm-3 col-3 order-1">
 						<div class="logo_container">
-							<div class="logo"><a href="{{ url('/') }}">OneTech</a></div>
+							<div class="logo"><a href="{{ url('/') }}">
+								@if(session()->get('lang')=='bangla')
+								প্রথম ইকম
+								@else
+								firstEocm @endif</a></div>
 						</div>
 					</div>
 
@@ -138,13 +144,17 @@
 							<div class="wishlist d-flex flex-row align-items-center justify-content-end">
 								<div class="wishlist_icon"><img src="{{ asset('public/frontend/images/heart.png') }}" alt=""></div>
 								<div class="wishlist_content">
-									<div class="wishlist_text"><a href="#">Wishlist</a></div>
+									<div class="wishlist_text"><a href="{{route('user.wishlist')}}">Wishlist</a></div>
 									<div class="wishlist_count">{{ count($wishlist) }}</div>
 								</div>
 							</div>
 							@endguest
 
 							<!-- Cart -->
+							@php
+								$setting=DB::table('settings')->first();
+								$charge=$setting->shipping_charge;
+							@endphp
 							<div class="cart">
 								<div class="cart_container d-flex flex-row align-items-center justify-content-end">
 									<div class="cart_icon">
@@ -153,7 +163,11 @@
 									</div>
 									<div class="cart_content">
 										<div class="cart_text"><a href="{{route('show.cart')}}">Cart</a></div>
+										@if(Session::has('coupon'))
+										<div class="cart_price">${{Session::get('coupon')['balance']+$charge}}</div>
+										@else
 										<div class="cart_price">${{ Cart::Subtotal() }}</div>
+										@endif
 									</div>
 								</div>
 							</div>

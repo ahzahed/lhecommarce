@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin\Coupon;
 
 use App\Http\Controllers\Controller;
+use Cart;
+use Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -54,5 +56,36 @@ class CouponController extends Controller
                 );
             return Redirect()->route('coupons')->with($notification);
     }
+
+    public function userCoupon(Request $request)
+    {
+        $coupon=$request->coupon;
+        $check=DB::table('coupons')->where('coupon',$coupon)->first();
+        if ($check) {
+              session::put('coupon',[
+                  'name' => $check->coupon,
+                  'discount' => $check->discount,
+                  'balance' => Cart::Subtotal() - $check->discount
+              ]);
+              $notification=array(
+                              'messege'=>'Successfully Coupon Applied',
+                               'alert-type'=>'success'
+                         );
+            return redirect()->back()->with($notification);
+        }else{
+            $notification=array(
+                              'messege'=>'Invalid Coupon',
+                               'alert-type'=>'error'
+                         );
+            return redirect()->back()->with($notification);
+        }
+
+    }
+
+    public function removeCoupon(){
+        session::forget('coupon');
+        return redirect()->back();
+    }
+
 
 }

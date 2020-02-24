@@ -2,13 +2,16 @@
 @section('content')
 <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/cart_styles.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/cart_responsive.css') }}">
-
+@php
+    $setting=DB::table('settings')->first();
+    $charge=$setting->shipping_charge;
+@endphp
 <div class="cart_section">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="cart_container">
-                    <div class="cart_title">Shopping Cart</div>
+                    <div class="cart_title">Checkout</div>
                     <div class="cart_items">
                         <ul class="cart_list">
                             @foreach ($cart as $cart)
@@ -63,17 +66,51 @@
                     </div>
                     
                     <!-- Order Total -->
-                    <div class="order_total">
-                        <div class="order_total_content text-md-right">
-                            <div class="order_total_title">Order Total:</div>
-                            <div class="order_total_amount">${{ Cart::Subtotal() }}</div>
-                        </div>
-                    </div>
+                    <div class="order_total_content " style="padding: 14px;">
+                        @if(Session::has('coupon'))
+                        @else
+                           <h5>Apply Coupon</h5>
+                           <form action="{{ route('apply.coupon') }}" method="post">
+                               @csrf
+                                <div class="form-group col-lg-4">
+                                    <input type="text" class="form-control" name="coupon" required=""  aria-describedby="emailHelp" placeholder="Coupon Code">
+                                 </div>
+                                 <button type="submit" class="btn btn-danger ml-2">submit</button>
+                           </form>
+                           @endif
+                     </div>
+              
+                  <ul class="list-group col-lg-4" style="float: right;">
+                        @if(Session::has('coupon'))
+                             <li class="list-group-item">Subtotal :  <span style="float: right;"> $ {{ Session::get('coupon')['balance'] }}</span> </li>
+                              <li class="list-group-item">Coupon : ({{   Session::get('coupon')['name'] }}) <a href="{{ route('remove.coupon') }}" class="btn btn-danger btn-sm">x</a> <span style="float: right;"> $  {{ Session::get('coupon')['discount'] }} </span> </li>
+                            @else
+                              <li class="list-group-item">Subtotal :  <span style="float: right;"> $ {{ Cart::Subtotal() }}</span> </li>
+                            @endif
+                        
 
-                    <div class="cart_buttons">
-                        <button type="button" class="button cart_button_clear">All Cancel</button>
-                        <a href="{{route('user.checkout')}}" class="button cart_button_checkout">Checkout</a>
-                    </div>
+
+                        <li class="list-group-item">Shipping Charge: <span style="float: right;"> $ {{ $charge }}</span></li>
+                        <li class="list-group-item">Vat :  <span style="float: right;"> 0</span></li>
+                        @if(Session::has('coupon'))
+                        <li class="list-group-item">Total:  <span style="float: right;"> $ {{ Session::get('coupon')['balance'] + $charge }}</span> </li>
+                        @else
+                             <li class="list-group-item">Total:  <span style="float: right;">$ {{ Cart::Subtotal() + $charge }} </span> </li>
+                        @endif
+                  </ul>
+              </div>
+                 
+      
+          </div>
+      </div>
+             <div class="cart_buttons">
+              <a href="{{ route('show.cart') }}" class="button cart_button_clear">Back</a>
+              {{--  <a href="{{ route('payment.step') }}" class="button cart_button_checkout">Final Step</a>  --}}
+         </div>
+  </div>
+
+</div>
+
                 </div>
             </div>
         </div>

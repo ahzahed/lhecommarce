@@ -54,6 +54,8 @@ Route::post('admin/store/coupon', 'Admin\Coupon\CouponController@StoreCoupon')->
 Route::get('delete/coupon/{id}', 'Admin\Coupon\CouponController@deleteCoupon');
 Route::get('edit/coupon/{id}', 'Admin\Coupon\CouponController@editCoupon');
 Route::post('update/coupon/{id}', 'Admin\Coupon\CouponController@updateCoupon');
+Route::post('user/apply/coupon', 'Admin\Coupon\CouponController@userCoupon')->name('apply.coupon');
+Route::get('coupon/remove/', 'Admin\Coupon\CouponController@removeCoupon')->name('remove.coupon');
 
 
 //Newslater
@@ -81,11 +83,17 @@ Route::get('delete/post/{id}', 'Admin\Blog\PostController@DeletePost');
 Route::get('edit/post/{id}', 'Admin\Blog\PostController@EditPost');
 Route::post('update/post/{id}', 'Admin\Blog\PostController@update');
 
+//blog route for frontend
+Route::get('/blog/post', 'BlogController@blog')->name('blog.post');
+Route::get('/language/bangla', 'BlogController@Bangla')->name('language.bangla');
+Route::get('/language/english', 'BlogController@English')->name('language.english');
+
 //Get subcategory by ajax
 Route::get('get/subcategory/{category_id}', 'Admin\Product\ProductController@GetSubCat');
 
 //Wishlist
 Route::get('add/wishlist/{id}', 'Admin\WishlistController@AddWishlist');
+Route::get('user/wishlist/','Admin\WishlistController@Wishlist')->name('user.wishlist');
 
 //cart
 Route::get('add/to/cart/{id}', 'Admin\CartController@AddCart');
@@ -95,6 +103,7 @@ Route::get('remove/cart/{rowId}', 'Admin\CartController@removeCart');
 Route::post('update/cart/item', 'Admin\CartController@updateCart')->name('update.cartitem');
 Route::get('cart/product/view/{id}','Admin\CartController@ViewProduct');
 Route::post('insert/into/cart/','Admin\CartController@InsertCart')->name('insert.into.cart');
+Route::get('user/checkout/','Admin\CartController@Checkout')->name('user.checkout');
 
 // Socialite
 Route::get('/auth/redirect/{provider}', 'Admin\SocialController@redirect');

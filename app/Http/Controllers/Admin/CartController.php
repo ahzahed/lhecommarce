@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Cart;
 use Response;
 use Gloudemans\Shoppingcart\Facades\Cart as FacadesCart;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
@@ -122,7 +123,20 @@ class CartController extends Controller
                          );
                        return Redirect()->back()->with($notification);
          }
-    }
+	}
+	
+	public function Checkout(){
+		if(Auth::check()){
+			$cart = Cart::content();
+			return view('pages.checkout',compact('cart'));
+		}else{
+			$notification=array(
+				'messege'=>'Sign in first!',
+				 'alert-type'=>'success'
+		   );
+		   return Redirect()->route('login')->with($notification);
+		}
+	}
 
 
 }

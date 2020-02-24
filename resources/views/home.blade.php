@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-<a href="{{ route('user.logout') }}" class="btn btn-info">Logout</a>
     <div class="contact_form">
         <div class="container">
             <div class="row">
