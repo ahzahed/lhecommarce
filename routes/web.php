@@ -1,7 +1,5 @@
 <?php
 
-
-
 Route::get('/', function () {return view('pages.index');});
 //auth & user
 Auth::routes(['verify' => true]);
@@ -104,6 +102,11 @@ Route::post('update/cart/item', 'Admin\CartController@updateCart')->name('update
 Route::get('cart/product/view/{id}','Admin\CartController@ViewProduct');
 Route::post('insert/into/cart/','Admin\CartController@InsertCart')->name('insert.into.cart');
 Route::get('user/checkout/','Admin\CartController@Checkout')->name('user.checkout');
+Route::get('payment/page/','Admin\CartController@paymentPage')->name('payment.step');
+
+//Payment route
+Route::post('user/payment/process/','PaymentController@payment')->name('payment.process');
+Route::post('user/stripe/charge/','PaymentController@StripeCharge')->name('stripe.charge');
 
 // Socialite
 Route::get('/auth/redirect/{provider}', 'Admin\SocialController@redirect');
@@ -114,6 +117,9 @@ Route::get('/callback/{provider}', 'Admin\SocialController@callback');
 // Product Details
 Route::get('/product/details/{id}/{product_name}', 'ProductController@ProductView');
 Route::post('/cart/product/add/{id}', 'ProductController@AddCart');
+
+Route::get('/product/add/{id}', 'ProductController@AddCart');
+Route::get('/products/{id}', 'ProductController@productsView');
 
 
 

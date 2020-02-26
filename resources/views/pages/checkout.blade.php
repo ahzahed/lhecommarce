@@ -105,7 +105,7 @@
       </div>
              <div class="cart_buttons">
               <a href="{{ route('show.cart') }}" class="button cart_button_clear">Back</a>
-              {{--  <a href="{{ route('payment.step') }}" class="button cart_button_checkout">Final Step</a>  --}}
+              <a href="{{ route('payment.step') }}" class="button cart_button_checkout">Final Step</a>
          </div>
   </div>
 

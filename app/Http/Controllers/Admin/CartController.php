@@ -125,18 +125,25 @@ class CartController extends Controller
          }
 	}
 	
-	public function Checkout(){
-		if(Auth::check()){
-			$cart = Cart::content();
-			return view('pages.checkout',compact('cart'));
-		}else{
-			$notification=array(
-				'messege'=>'Sign in first!',
-				 'alert-type'=>'success'
-		   );
-		   return Redirect()->route('login')->with($notification);
-		}
+	public function Checkout()
+    {
+        if (Auth::check()) {
+              $cart=Cart::content();
+              return view('pages.checkout',compact('cart'));
+        }else{
+           $notification=array(
+                              'messege'=>'AT first login your account',
+                               'alert-type'=>'success'
+                         );
+          return redirect()->route('login')->with($notification);
+        }
+
+
+    }
+
+
+	public function paymentPage(){
+		$cart=Cart::content();
+		return view('pages.payment',compact('cart'));
 	}
-
-
 }
