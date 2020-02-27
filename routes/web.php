@@ -86,6 +86,20 @@ Route::get('/blog/post', 'BlogController@blog')->name('blog.post');
 Route::get('/language/bangla', 'BlogController@Bangla')->name('language.bangla');
 Route::get('/language/english', 'BlogController@English')->name('language.english');
 
+//Order routes
+Route::get('admin/pending/order', 'Admin\OrderController@NewOrder')->name('admin.neworder');
+Route::get('admin/view/order/{id}', 'Admin\OrderController@ViewOrder');
+Route::get('admin/payment/accept/{id}', 'Admin\OrderController@PaymentAccept');
+Route::get('admin/payment/cancel/{id}', 'Admin\OrderController@PaymentCancel');
+
+Route::get('admin/accept/payment', 'Admin\OrderController@AcceptPaymentOrder')->name('admin.accept.payment');
+Route::get('admin/progress/payment', 'Admin\OrderController@ProgressPaymentOrder')->name('admin.progress.payment');
+Route::get('admin/success/payment', 'Admin\OrderController@SuccessPaymentOrder')->name('admin.success.payment');
+Route::get('admin/cancel/payment', 'Admin\OrderController@CancelPaymentOrder')->name('admin.cancel.order');
+Route::get('admin/delevery/progress/{id}', 'Admin\OrderController@DeleveryProgress');
+Route::get('admin/delevery/done/{id}', 'Admin\OrderController@DeleveryDone');
+
+
 //Get subcategory by ajax
 Route::get('get/subcategory/{category_id}', 'Admin\Product\ProductController@GetSubCat');
 
